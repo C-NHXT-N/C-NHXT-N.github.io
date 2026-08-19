@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { copy } from '../data/site';
+const zh = copy.zh;
+const en = copy.en;
+---
+
+<BaseLayout locale="zh" title="404" description={zh.notFoundBody} noindex>
+  <main id="main-content" class="not-found wrapper">
+    <span class="not-found__code">404</span>
+    <div>
+      <span class="section-kicker">SIGNAL LOST</span>
+      <h1>{zh.notFoundTitle}<br /><small>{en.notFoundTitle}</small></h1>
+      <p>{zh.notFoundBody}<br /><span lang="en">{en.notFoundBody}</span></p>
+      <div class="button-row">
+        <a class="button primary" href="/">{zh.returnHome}</a>
+        <a class="button secondary" href="/en/">{en.returnHome}</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

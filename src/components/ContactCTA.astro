@@ -1,0 +1,17 @@
+---
+import type { Locale } from '../data/site';
+import { copy, email, github } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const t = copy[locale];
+---
+
+<section class="contact-cta" aria-labelledby="contact-title">
+  <div class="contact-cta__glow" aria-hidden="true"></div>
+  <span class="section-kicker">CONTACT</span>
+  <h2 id="contact-title">{t.contactTitle}</h2>
+  <p>{t.contactBody}</p>
+  <div class="button-row centered-buttons">
+    <a class="button primary" href={`mailto:${email}`}>{t.contactMe} <span aria-hidden="true">↗</span></a>
+    <a class="button secondary" href={github} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+  </div>
+</section>

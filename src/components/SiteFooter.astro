@@ -1,0 +1,23 @@
+---
+import type { Locale } from '../data/site';
+import { copy, email, github, localePath } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const t = copy[locale];
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <a class="brand footer-brand" href={localePath(locale, '/')}>
+        <span class="brand-mark" aria-hidden="true">GA</span>
+        <span>{locale === 'zh' ? '郭艾咏' : 'Aiyong Guo'}</span>
+      </a>
+      <p>{t.footerLine}</p>
+    </div>
+    <div class="footer-links">
+      <a href={`mailto:${email}`}>{email}</a>
+      <a href={github} target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+    <p class="copyright">© {new Date().getFullYear()} {locale === 'zh' ? '郭艾咏' : 'Aiyong Guo'}</p>
+  </div>
+</footer>

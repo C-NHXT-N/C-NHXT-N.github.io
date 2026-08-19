@@ -1,0 +1,54 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  class?: string;
+  position?: string;
+}
+
+const dimensions: Record<string, [number, number]> = {
+  'portrait.webp': [1122, 1402],
+  'solar-car-model.webp': [659, 678],
+  'solar-path-optimization.webp': [616, 577],
+  'solar-radius-analysis.webp': [1237, 1200],
+  'solar-tolerance-analysis.webp': [1237, 1200],
+  'onion-field-test.webp': [526, 500],
+  'onion-slam.webp': [988, 454],
+  'onion-prototype-top.webp': [398, 295],
+  'onion-prototype-side.webp': [1600, 1200],
+  'water-collector-diagram.webp': [1292, 724],
+  'water-control-rig.webp': [579, 772],
+  'water-sampling-pcb.webp': [900, 1200],
+  'plc-sorting-line.webp': [1270, 742],
+};
+
+const {
+  src,
+  alt,
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  sizes = '100vw',
+  class: className,
+  position = 'center',
+} = Astro.props;
+const avif = src.replace(/\.webp$/, '.avif');
+const filename = src.split('/').at(-1) ?? '';
+const [width, height] = dimensions[filename] ?? [1600, 1200];
+---
+
+<picture class={className} style={`--media-position: ${position}`}>
+  <source srcset={avif} type="image/avif" sizes={sizes} />
+  <source srcset={src} type="image/webp" sizes={sizes} />
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding={loading === 'eager' ? 'sync' : 'async'}
+  />
+</picture>

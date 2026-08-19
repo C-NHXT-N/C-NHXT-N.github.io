@@ -1,0 +1,71 @@
+{
+  "slug": "onion-harvester",
+  "order": 1,
+  "period": "2024.01–2025.05",
+  "title": {
+    "zh": "小型化智能葱类作物收获机器人",
+    "en": "Compact Intelligent Scallion Harvesting Robot"
+  },
+  "role": { "zh": "第一负责人", "en": "Project Lead" },
+  "summary": {
+    "zh": "面向葱类作物收获场景，集成松土、输送、分拣、视觉定位与自主导航的移动机器人。",
+    "en": "A mobile robot integrating soil loosening, transport, sorting, visual localization and autonomous navigation for scallion harvesting."
+  },
+  "challenge": {
+    "zh": "葱类作物形态细长、种植行间环境复杂，机器人需要在有限尺寸内同时完成低损松土、连续输送、质量分拣和田间自主移动。",
+    "en": "Scallions are slender and field rows are visually complex. The robot had to combine low-damage loosening, continuous transport, quality sorting and autonomous motion within a compact platform."
+  },
+  "solution": {
+    "zh": [
+      "设计松土机构、挠性传输机构与双死点连杆机构，形成收获作业链。",
+      "使用 YOLOv5 完成作物质量分拣，使用 ORB-SLAM3 完成建图与定位。",
+      "基于 EXG 与改进贯序聚类识别作物行，并用改进人工势场法规划路径。"
+    ],
+    "en": [
+      "Designed loosening, flexible transport and double-dead-point linkage mechanisms as an integrated harvesting chain.",
+      "Applied YOLOv5 for quality sorting and ORB-SLAM3 for mapping and localization.",
+      "Detected crop rows with ExG and improved sequential clustering, then planned motion with an improved artificial potential field method."
+    ]
+  },
+  "contributions": {
+    "zh": [
+      "负责整体机构设计、机器人模型与动画渲染。",
+      "实现作物行识别并部署 ORB-SLAM3-ROS2。",
+      "完成下位机电路、PCB 焊接、STM32 控制与物联网云平台 UI。"
+    ],
+    "en": [
+      "Led mechanism design, robot modeling and animation rendering.",
+      "Implemented crop-row perception and deployed ORB-SLAM3 with ROS2.",
+      "Built lower-controller electronics, soldered the PCB, programmed STM32 control and designed the IoT dashboard UI."
+    ]
+  },
+  "outcome": {
+    "zh": "完成整机原型与多模块联调；相关收获机构成果获得国家发明专利授权。",
+    "en": "Completed the integrated prototype and multi-module testing; related harvesting mechanism work received a granted national invention patent."
+  },
+  "technologies": ["ROS2", "ORB-SLAM3", "YOLOv5", "STM32", "C++", "Python", "Jetson Orin Nano", "SolidWorks"],
+  "cover": "/assets/projects/onion-prototype-side.webp",
+  "images": [
+    {
+      "src": "/assets/projects/onion-field-test.webp",
+      "alt": { "zh": "葱类收获机器人在田间进行作业测试", "en": "Scallion harvesting robot during a field test" },
+      "caption": { "zh": "田间松土与收获测试", "en": "Field loosening and harvesting test" }
+    },
+    {
+      "src": "/assets/projects/onion-slam.webp",
+      "alt": { "zh": "ORB-SLAM3 点云建图界面和机器人正面", "en": "ORB-SLAM3 point-cloud mapping interface and front view of the robot" },
+      "caption": { "zh": "建图定位与整机联调", "en": "Mapping, localization and system integration" }
+    },
+    {
+      "src": "/assets/projects/onion-prototype-top.webp",
+      "alt": { "zh": "收获机器人原型俯视图", "en": "Top view of the harvesting robot prototype" },
+      "caption": { "zh": "紧凑型原型结构", "en": "Compact prototype architecture" }
+    },
+    {
+      "src": "/assets/projects/onion-prototype-side.webp",
+      "alt": { "zh": "实验室中的葱类收获机器人完整原型", "en": "Complete scallion harvesting robot prototype in the lab" },
+      "caption": { "zh": "机械、电控与感知系统集成", "en": "Integrated mechanical, control and perception systems" }
+    }
+  ],
+  "links": []
+}

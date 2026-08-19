@@ -1,0 +1,39 @@
+---
+import type { Locale } from '../data/site';
+import { copy, skillBranches } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const t = copy[locale];
+---
+
+<section class="section skill-section" aria-labelledby="skill-heading">
+  <div class="section-heading centered">
+    <span class="section-kicker">SYSTEM MAP</span>
+    <h2 id="skill-heading">{t.skillTitle}</h2>
+    <p>{t.skillBody}</p>
+  </div>
+  <div class="skill-tree">
+    <div class="skill-root">
+      <span class="skill-root__orb" aria-hidden="true"></span>
+      <div>
+        <span>{locale === 'zh' ? '能力主干' : 'Core trunk'}</span>
+        <strong>{locale === 'zh' ? '机器人系统' : 'Robotics Systems'}</strong>
+      </div>
+    </div>
+    <div class="skill-branches">
+      {skillBranches.map((branch) => (
+        <article class="skill-branch">
+          <div class="skill-branch__top">
+            <span class="skill-mark" aria-hidden="true">{branch.mark}</span>
+            <div>
+              <h3>{branch[locale].title}</h3>
+              <p>{branch[locale].description}</p>
+            </div>
+          </div>
+          <ul>
+            {branch.skills.map((skill) => <li>{skill}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

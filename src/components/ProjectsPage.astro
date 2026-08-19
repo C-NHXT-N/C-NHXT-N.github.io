@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import type { Locale } from '../data/site';
+import { copy } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+import ContactCTA from './ContactCTA.astro';
+
+const { locale } = Astro.props as { locale: Locale };
+const t = copy[locale];
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout locale={locale} title={t.projectsTitle} description={t.projectsLead}>
+  <main id="main-content">
+    <section class="page-hero wrapper">
+      <span class="section-kicker">PROJECT ARCHIVE · 2023—2025</span>
+      <h1>{t.projectsTitle}</h1>
+      <p>{t.projectsLead}</p>
+    </section>
+    <section class="section wrapper" aria-label={t.projectsTitle}>
+      <div class="project-grid project-grid--archive">
+        {projects.map((project) => <ProjectCard project={project} locale={locale} />)}
+      </div>
+    </section>
+    <div class="wrapper"><ContactCTA locale={locale} /></div>
+  </main>
+</BaseLayout>

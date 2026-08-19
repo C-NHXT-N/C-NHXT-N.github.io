@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../data/site';
+import { copy, localePath } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ResponsiveImage from './ResponsiveImage.astro';
+import ContactCTA from './ContactCTA.astro';
+
+const { project, nextProject, locale } = Astro.props as {
+  project: CollectionEntry<'projects'>;
+  nextProject: CollectionEntry<'projects'>;
+  locale: Locale;
+};
+const data = project.data;
+const next = nextProject.data;
+const t = copy[locale];
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: data.title[locale],
+  description: data.summary[locale],
+  creator: { '@type': 'Person', name: locale === 'zh' ? '郭艾咏' : 'Aiyong Guo' },
+  dateCreated: data.period,
+  image: data.images.map((image) => new URL(image.src, 'https://c-nhxt-n.github.io').href),
+  keywords: data.technologies.join(', '),
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={data.title[locale]}
+  description={data.summary[locale]}
+  image={data.cover}
+  structuredData={structuredData}
+>
+  <main id="main-content">
+    <article class="project-detail">
+      <header class="project-hero wrapper">
+        <a class="back-link" href={localePath(locale, '/projects/')}><span aria-hidden="true">←</span> {t.backProjects}</a>
+        <div class="project-hero__grid">
+          <div class="project-hero__copy">
+            <div class="project-number">CASE STUDY · 0{data.order}</div>
+            <h1>{data.title[locale]}</h1>
+            <p>{data.summary[locale]}</p>
+            <dl class="project-facts">
+              <div><dt>{locale === 'zh' ? '角色' : 'Role'}</dt><dd>{data.role[locale]}</dd></div>
+              <div><dt>{locale === 'zh' ? '周期' : 'Period'}</dt><dd>{data.period}</dd></div>
+              <div><dt>{locale === 'zh' ? '系统范围' : 'System scope'}</dt><dd>{data.technologies.slice(0, 3).join(' · ')}</dd></div>
+            </dl>
+          </div>
+          <ResponsiveImage
+            class="project-hero__image"
+            src={data.cover}
+            alt={data.images[0]?.alt[locale] ?? data.title[locale]}
+            loading="eager"
+            fetchpriority="high"
+            sizes="(min-width: 900px) 45vw, 100vw"
+          />
+        </div>
+      </header>
+
+      <div class="project-story wrapper">
+        <section class="story-block story-block--lead">
+          <span class="story-index">01</span>
+          <div><span class="section-kicker">CONTEXT</span><h2>{t.projectChallenge}</h2><p class="story-lead">{data.challenge[locale]}</p></div>
+        </section>
+        <section class="story-block">
+          <span class="story-index">02</span>
+          <div><span class="section-kicker">SYSTEM</span><h2>{t.projectSolution}</h2><ul class="numbered-list">{data.solution[locale].map((item) => <li>{item}</li>)}</ul></div>
+        </section>
+        <section class="story-block">
+          <span class="story-index">03</span>
+          <div><span class="section-kicker">RESPONSIBILITY</span><h2>{t.projectContribution}</h2><ul class="check-list">{data.contributions[locale].map((item) => <li>{item}</li>)}</ul></div>
+        </section>
+        <section class="story-block">
+          <span class="story-index">04</span>
+          <div><span class="section-kicker">STACK</span><h2>{t.projectTech}</h2><ul class="tag-list tag-list--large">{data.technologies.map((technology) => <li>{technology}</li>)}</ul></div>
+        </section>
+      </div>
+
+      <section class="evidence-section wrapper" aria-labelledby="evidence-title">
+        <div class="section-heading split-heading">
+          <div><span class="section-kicker">EVIDENCE</span><h2 id="evidence-title">{t.projectEvidence}</h2></div>
+          <p>{locale === 'zh' ? '以下图像来自项目传单中的真实设计、仿真和原型记录。' : 'These images come from the supplied project flyer and document real designs, simulations and prototypes.'}</p>
+        </div>
+        <div class:list={['evidence-grid', { single: data.images.length === 1 }]}>
+          {data.images.map((image, index) => (
+            <figure class:list={[{ wide: index === 0 || data.images.length === 1 }]}>
+              <ResponsiveImage src={image.src} alt={image.alt[locale]} sizes="(min-width: 900px) 50vw, 100vw" />
+              <figcaption><span>{String(index + 1).padStart(2, '0')}</span>{image.caption[locale]}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section class="outcome-section wrapper" aria-labelledby="outcome-title">
+        <span class="section-kicker">OUTCOME</span>
+        <h2 id="outcome-title">{t.projectOutcome}</h2>
+        <p>{data.outcome[locale]}</p>
+      </section>
+
+      <nav class="next-project wrapper" aria-label={t.nextProject}>
+        <a href={localePath(locale, `/projects/${next.slug}/`)}>
+          <span>{t.nextProject}</span>
+          <strong>{next.title[locale]}</strong>
+          <span class="next-arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+      <div class="wrapper"><ContactCTA locale={locale} /></div>
+    </article>
+  </main>
+</BaseLayout>

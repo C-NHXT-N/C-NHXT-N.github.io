@@ -1,0 +1,68 @@
+{
+  "slug": "solar-cam-car",
+  "order": 2,
+  "period": "2023.11–2025.05",
+  "title": { "zh": "太阳能凸轮电动小车", "en": "Solar-Powered Cam Steering Vehicle" },
+  "role": { "zh": "第一负责人", "en": "Project Lead" },
+  "summary": {
+    "zh": "由太阳能和超级电容驱动、仅用一个电机同时完成驱动与凸轮转向的创新小车。",
+    "en": "An innovative vehicle powered by solar energy and supercapacitors, using a single motor for propulsion and cam-based steering."
+  },
+  "challenge": {
+    "zh": "在只有一个驱动电机的约束下，小车需要沿指定路线稳定行驶。凸轮轮廓误差、加工偏差与机构装配误差会共同影响路径精度。",
+    "en": "With only one drive motor, the vehicle had to follow a prescribed path. Cam profile, manufacturing and assembly errors all affected trajectory accuracy."
+  },
+  "solution": {
+    "zh": [
+      "采用凸轮摆杆机构实现机械转向，将目标路径转化为凸轮轮廓。",
+      "基于物理几何启发的迭代方法推导凸轮优化与路径误差模拟程序。",
+      "通过误差抵消思路优化关键半径，并设计太阳能板与超级电容充放电电路。"
+    ],
+    "en": [
+      "Used a cam-rocker mechanism for steering and converted the target route into a cam profile.",
+      "Derived a physics- and geometry-inspired iterative method for cam optimization and path-error simulation.",
+      "Applied error compensation to key radii and designed solar-panel and supercapacitor charge/discharge electronics."
+    ]
+  },
+  "contributions": {
+    "zh": [
+      "建立小车数学模型并编写凸轮优化、路径模拟代码。",
+      "完成关键参数的容差分析与多轮优化对比。",
+      "设计并焊接超级电容充电电路板，编写打卡亮灯程序。"
+    ],
+    "en": [
+      "Built the mathematical model and implemented cam optimization and trajectory simulation.",
+      "Performed tolerance analysis and compared successive optimization rounds.",
+      "Designed and soldered the supercapacitor charging board and programmed checkpoint indicators."
+    ]
+  },
+  "outcome": {
+    "zh": "完成国家级大学生创新训练项目的整车、仿真软件与电路开发，并形成公开发表论文相关成果。",
+    "en": "Completed the vehicle, simulation software and electronics for a National Undergraduate Innovation Training Program, with related work published in a journal paper."
+  },
+  "technologies": ["MATLAB", "Mechanism Design", "Numerical Optimization", "Tolerance Analysis", "PCB", "Supercapacitor"],
+  "cover": "/assets/projects/solar-car-model.webp",
+  "images": [
+    {
+      "src": "/assets/projects/solar-car-model.webp",
+      "alt": { "zh": "太阳能凸轮小车三维模型", "en": "3D model of the solar-powered cam vehicle" },
+      "caption": { "zh": "整车三维设计", "en": "Complete 3D vehicle design" }
+    },
+    {
+      "src": "/assets/projects/solar-path-optimization.webp",
+      "alt": { "zh": "凸轮小车路径多轮优化曲线", "en": "Successive path optimization curves for the cam vehicle" },
+      "caption": { "zh": "路径迭代优化", "en": "Iterative path optimization" }
+    },
+    {
+      "src": "/assets/projects/solar-radius-analysis.webp",
+      "alt": { "zh": "关键半径参数对路径影响的分析图", "en": "Analysis of key radius parameters and trajectory changes" },
+      "caption": { "zh": "关键参数敏感性分析", "en": "Key-parameter sensitivity analysis" }
+    },
+    {
+      "src": "/assets/projects/solar-tolerance-analysis.webp",
+      "alt": { "zh": "凸轮参数容差分析曲线", "en": "Cam parameter tolerance analysis curves" },
+      "caption": { "zh": "加工与装配容差评估", "en": "Manufacturing and assembly tolerance evaluation" }
+    }
+  ],
+  "links": []
+}

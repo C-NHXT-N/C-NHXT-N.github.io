@@ -1,0 +1,63 @@
+{
+  "slug": "atmospheric-water",
+  "order": 3,
+  "period": "2024.05–2025.03",
+  "title": { "zh": "电子追光大气集水设备", "en": "Sun-Tracking Atmospheric Water Harvester" },
+  "role": { "zh": "核心成员", "en": "Core Team Member" },
+  "summary": {
+    "zh": "结合超吸湿纳米纤维膜、电子追光平台和闭环控制，实现空气吸水、受热排水与循环运行。",
+    "en": "A cyclic atmospheric water harvesting device combining a super-hygroscopic nanofiber membrane, sun tracking and closed-loop control."
+  },
+  "challenge": {
+    "zh": "设备需要在吸湿与排水状态之间稳定切换，同时根据光照方向调整受热位置，并从压力信号中获得可靠的水量变化信息。",
+    "en": "The system needed stable switching between adsorption and drainage, reliable sun-oriented heating and robust interpretation of pressure signals indicating water accumulation."
+  },
+  "solution": {
+    "zh": [
+      "构建带吸湿仓、限削间隙、升降台与排水结构的装置模型。",
+      "使用电子追光平台调整受热方向，利用压力传感器监测状态。",
+      "结合卡尔曼滤波、一阶低通滤波与 PID 实现自动循环吸水和排水。"
+    ],
+    "en": [
+      "Modeled a device with an adsorption chamber, controlled gap, lifting platform and drainage structure.",
+      "Used electronic sun tracking to orient heating and pressure sensing to monitor system state.",
+      "Combined Kalman filtering, a first-order low-pass filter and PID control for automated adsorption and drainage cycles."
+    ]
+  },
+  "contributions": {
+    "zh": [
+      "负责集水设备模型与工程图纸设计。",
+      "设计采样电路并完成 PCB 焊接。",
+      "编写 STM32 控制、信号滤波与循环逻辑程序。"
+    ],
+    "en": [
+      "Designed the water harvesting device model and engineering drawings.",
+      "Designed the sampling circuit and soldered the PCB.",
+      "Programmed STM32 control, signal filtering and cyclic operation logic."
+    ]
+  },
+  "outcome": {
+    "zh": "完成装置模型、采样电路与自动循环控制方案，实现气态水分子到液态水的可控传输。",
+    "en": "Completed the mechanical model, sampling electronics and automatic cyclic control for managed transfer from atmospheric vapor to liquid water."
+  },
+  "technologies": ["STM32", "Kalman Filter", "Low-pass Filter", "PID", "Pressure Sensor", "PCB", "SolidWorks"],
+  "cover": "/assets/projects/water-collector-diagram.webp",
+  "images": [
+    {
+      "src": "/assets/projects/water-collector-diagram.webp",
+      "alt": { "zh": "大气集水装置与集水头结构示意图", "en": "Structural diagram of the atmospheric water harvester and collector head" },
+      "caption": { "zh": "装置与集水头结构", "en": "Device and collector-head architecture" }
+    },
+    {
+      "src": "/assets/projects/water-control-rig.webp",
+      "alt": { "zh": "实验室中的集水设备控制测试平台", "en": "Control test rig for the water harvesting device" },
+      "caption": { "zh": "采样与控制测试平台", "en": "Sampling and control test rig" }
+    },
+    {
+      "src": "/assets/projects/water-sampling-pcb.webp",
+      "alt": { "zh": "手持采样电路 PCB 实物", "en": "Hand-held sampling circuit PCB" },
+      "caption": { "zh": "采样电路与 PCB", "en": "Sampling electronics and PCB" }
+    }
+  ],
+  "links": []
+}

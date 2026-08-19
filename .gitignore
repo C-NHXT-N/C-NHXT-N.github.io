@@ -1,0 +1,12 @@
+node_modules/
+.pnpm-store/
+dist/
+.astro/
+.DS_Store
+.codex-dev.log
+.codex-dev.err
+
+# Private source documents: keep local and never publish.
+/郭艾咏的简历.pdf
+/传单.docx
+/漫画肖像.png

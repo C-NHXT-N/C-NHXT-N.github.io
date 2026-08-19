@@ -1,0 +1,123 @@
+---
+import '@fontsource-variable/manrope';
+import '../styles/global.css';
+import type { Locale } from '../data/site';
+import { copy, email, github } from '../data/site';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  image?: string;
+  structuredData?: Record<string, unknown>;
+  noindex?: boolean;
+}
+
+const { locale, title, description, image = '/og.png', structuredData, noindex = false } = Astro.props;
+const t = copy[locale];
+const pageTitle = title ? `${title} — ${locale === 'zh' ? '郭艾咏' : 'Aiyong Guo'}` : t.siteTitle;
+const pageDescription = description ?? t.siteDescription;
+const site = Astro.site ?? new URL('https://c-nhxt-n.github.io');
+const currentPath = Astro.url.pathname;
+const canonicalPath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+const canonical = new URL(canonicalPath, site);
+const zhPath = locale === 'zh' ? canonicalPath : canonicalPath.replace(/^\/en(?=\/|$)/, '') || '/';
+const enPath = locale === 'en' ? canonicalPath : canonicalPath === '/' ? '/en/' : `/en${canonicalPath}`;
+const personData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: locale === 'zh' ? '郭艾咏' : 'Aiyong Guo',
+  url: 'https://c-nhxt-n.github.io',
+  email: `mailto:${email}`,
+  sameAs: [github],
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Jiangnan University',
+  },
+  knowsAbout: ['Robotics', 'Control Systems', 'ROS2', 'Embedded Systems', 'Robot Perception', 'Embodied AI'],
+};
+const jsonLd = structuredData ? [personData, structuredData] : [personData];
+---
+
+<!doctype html>
+<html lang={locale === 'zh' ? 'zh-CN' : 'en'} data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#0b1220" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL(zhPath, site)} />
+    <link rel="alternate" hreflang="en" href={new URL(enPath, site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(zhPath, site)} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={locale === 'zh' ? '郭艾咏的机器人主页' : "Aiyong Guo's Robotics Portfolio"} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, site)} />
+    <meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={new URL(image, site)} />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      try {
+        const stored = localStorage.getItem('portfolio-theme');
+        const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = stored || preferred;
+      } catch (_) {}
+    </script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{t.skipLink}</a>
+    <div class="site-shell">
+      <SiteHeader locale={locale} currentPath={canonicalPath} />
+      <slot />
+      <SiteFooter locale={locale} />
+    </div>
+    <script is:inline>
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      const syncThemeButton = () => {
+        if (!themeButton) return;
+        const isDark = document.documentElement.dataset.theme === 'dark';
+        themeButton.setAttribute('aria-pressed', String(isDark));
+        themeButton.querySelector('[data-theme-icon]').textContent = isDark ? '☾' : '☀';
+      };
+      syncThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('portfolio-theme', next); } catch (_) {}
+        syncThemeButton();
+      });
+
+      const menuButton = document.querySelector('[data-menu-button]');
+      const menu = document.querySelector('[data-menu]');
+      const setMenu = (open) => {
+        if (!menuButton || !menu) return;
+        menu.dataset.open = String(open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? menuButton.dataset.closeLabel : menuButton.dataset.openLabel);
+      };
+      menuButton?.addEventListener('click', () => setMenu(menu?.dataset.open !== 'true'));
+      menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenu(false);
+      });
+      matchMedia('(min-width: 52.5rem)').addEventListener('change', (event) => {
+        if (event.matches) setMenu(false);
+      });
+    </script>
+  </body>
+</html>

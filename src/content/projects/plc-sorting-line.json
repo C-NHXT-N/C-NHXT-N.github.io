@@ -1,0 +1,53 @@
+{
+  "slug": "plc-sorting-line",
+  "order": 4,
+  "period": "2024.05–2025.06",
+  "title": { "zh": "PLC 检测与分拣流水线", "en": "PLC Inspection and Sorting Line" },
+  "role": { "zh": "第一负责人", "en": "Project Lead" },
+  "summary": {
+    "zh": "使用两台西门子 S7-1200 PLC 与触摸屏，完成物料搬运、检测、分类和故障报警的完整产线。",
+    "en": "A complete material handling, inspection, sorting and fault-alarm line built with two Siemens S7-1200 PLCs and an HMI."
+  },
+  "challenge": {
+    "zh": "多个传感器与气动、电机执行机构需要跨 PLC 协同，顺序动作既要稳定运行，也要在单步超时或传感器异常时及时报警。",
+    "en": "Multiple sensors, pneumatic actuators and motors had to coordinate across two PLCs while detecting step timeouts and sensor faults safely."
+  },
+  "solution": {
+    "zh": [
+      "使用两台 S7-1200 PLC 和昆仑通态触摸屏组织控制与监控。",
+      "采集多种传感器并控制电磁阀、变频器和步进电机。",
+      "采用状态机完成顺序控制，并以看门狗机制实现动作超时报警。"
+    ],
+    "en": [
+      "Organized control and monitoring with two S7-1200 PLCs and an MCGS HMI.",
+      "Read multiple sensors and controlled solenoid valves, a variable-frequency drive and a stepper motor.",
+      "Implemented sequential control with a state machine and action-timeout alarms with watchdog logic."
+    ]
+  },
+  "contributions": {
+    "zh": [
+      "使用 SCL 与 LAD 完成 PLC 程序设计。",
+      "负责双 PLC 通信、整线调试与故障排查。",
+      "完成各类传感器和执行机构接线。"
+    ],
+    "en": [
+      "Programmed the PLCs using both SCL and LAD.",
+      "Led dual-PLC communication, line commissioning and troubleshooting.",
+      "Wired the sensors and actuators across the line."
+    ]
+  },
+  "outcome": {
+    "zh": "完成从物料搬运、检测、分类到超时报警的全流程搭建与联调。",
+    "en": "Completed and commissioned the full process from material transport and inspection to sorting and timeout alarms."
+  },
+  "technologies": ["Siemens S7-1200", "SCL", "LAD", "State Machine", "Watchdog", "MCGS HMI", "Industrial Sensors"],
+  "cover": "/assets/projects/plc-sorting-line.webp",
+  "images": [
+    {
+      "src": "/assets/projects/plc-sorting-line.webp",
+      "alt": { "zh": "带传感器、气动元件和控制柜的 PLC 分拣流水线", "en": "PLC sorting line with sensors, pneumatic components and control wiring" },
+      "caption": { "zh": "检测、分拣与控制系统联调", "en": "Integrated inspection, sorting and control system" }
+    }
+  ],
+  "links": []
+}

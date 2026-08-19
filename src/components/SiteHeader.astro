@@ -1,0 +1,69 @@
+---
+import type { Locale } from '../data/site';
+import { copy, email, github, localePath } from '../data/site';
+
+interface Props {
+  locale: Locale;
+  currentPath: string;
+}
+
+const { locale, currentPath } = Astro.props;
+const t = copy[locale];
+const zhEquivalent = locale === 'zh' ? currentPath : currentPath.replace(/^\/en(?=\/|$)/, '') || '/';
+const alternate = locale === 'zh' ? (currentPath === '/' ? '/en/' : `/en${currentPath}`) : zhEquivalent;
+const links = [
+  { label: t.nav.home, path: localePath(locale, '/') },
+  { label: t.nav.projects, path: localePath(locale, '/projects/') },
+  { label: t.nav.about, path: localePath(locale, '/about/') },
+];
+const normalize = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+const isCurrent = (path: string) => {
+  const normalized = normalize(path);
+  if (normalized === '/' || normalized === '/en/') return currentPath === normalized;
+  return currentPath.startsWith(normalized);
+};
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href={localePath(locale, '/')} aria-label={locale === 'zh' ? '郭艾咏首页' : 'Aiyong Guo home'}>
+      <span class="brand-mark" aria-hidden="true">GA</span>
+      <span>{locale === 'zh' ? '郭艾咏' : 'Aiyong Guo'}</span>
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      aria-label={t.openMenu}
+      data-menu-button
+      data-open-label={t.openMenu}
+      data-close-label={t.closeMenu}
+    >
+      <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </button>
+
+    <div class="site-nav" id="primary-navigation" data-menu data-open="false">
+      <nav aria-label={locale === 'zh' ? '主要导航' : 'Primary navigation'}>
+        <ul class="nav-links">
+          {links.map((link) => (
+            <li>
+              <a href={link.path} aria-current={isCurrent(link.path) ? 'page' : undefined}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-link language-link" href={alternate} lang={locale === 'zh' ? 'en' : 'zh-CN'} title={t.languageLabel}>
+          {t.languageCode}<span class="sr-only">{t.languageLabel}</span>
+        </a>
+        <button class="icon-link" type="button" data-theme-toggle aria-label={t.themeToggle} aria-pressed="false">
+          <span data-theme-icon aria-hidden="true">☀</span>
+        </button>
+        <a class="icon-link text-icon" href={github} target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+        <a class="icon-link text-icon" href={`mailto:${email}`} aria-label={locale === 'zh' ? '发送邮件' : 'Send email'}>@</a>
+      </div>
+    </div>
+  </div>
+</header>
