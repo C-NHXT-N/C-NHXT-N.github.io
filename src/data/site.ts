@@ -13,7 +13,7 @@ export const copy = {
     heroTitle: '个人主页',
     heroHeadline: '把机器人想法，做成可运行的系统。',
     heroBody:
-      '本科 江南大学机器人工程，研究方向农业机器人、长时序任务 VLA。硕士/保研 以绩点第一和综合第一保研至西安交通大学，研究方向轨道机器人、深海机器人。实习 华智（无锡）人工智能科技有限公司，免示教焊接机器人空间标定系统。',
+      '本科 江南大学机器人工程，研究方向农业机器人、长时序任务 VLA。硕士/保研 以绩点第一和综合第一保研至西安交通大学，研究方向轨道机器人、深海机器人。实习 华智（无锡）人工智能科技有限公司，免示教焊接机器人空间标定与高精度定位系统。',
     heroRoles: ['机器人系统', '机构与控制', '智能感知'],
     viewProjects: '查看项目',
     contactMe: '邮件联系',
@@ -64,7 +64,7 @@ export const copy = {
     heroTitle: 'Personal Homepage',
     heroHeadline: 'Turning robotics ideas into working systems.',
     heroBody:
-      'Undergraduate study in Robotics Engineering at Jiangnan University, researching agricultural robotics and long-horizon task VLA. Recommended for postgraduate study at Xi’an Jiaotong University after ranking first by GPA and comprehensive assessment, with interests in rail and deep-sea robotics. Interned at Huazhi (Wuxi) Artificial Intelligence Technology Co., Ltd. on a spatial calibration system for teachless welding robots.',
+      'Undergraduate study in Robotics Engineering at Jiangnan University, researching agricultural robotics and long-horizon task VLA. Recommended for postgraduate study at Xi’an Jiaotong University after ranking first by GPA and comprehensive assessment, with interests in rail and deep-sea robotics. Interned at Huazhi (Wuxi) Artificial Intelligence Technology Co., Ltd. on a spatial calibration and high-precision positioning system for teachless welding robots.',
     heroRoles: ['Robotics Systems', 'Mechanism & Control', 'Intelligent Perception'],
     viewProjects: 'View projects',
     contactMe: 'Email me',
@@ -120,28 +120,28 @@ export const skillBranches = [
     mark: 'ME',
     zh: { title: '机械设计', description: '将功能目标转化为可制造、可装配的机构。' },
     en: { title: 'Mechanical Design', description: 'Turning functional goals into manufacturable, integrated mechanisms.' },
-    skills: ['SolidWorks', 'AutoCAD', 'Blender', '机构设计 / Mechanisms'],
+    skills: ['SolidWorks', 'AutoCAD', 'Blender', '机构设计 / Mechanisms', { zh: '有限元 · ABAQUS', en: 'Finite Element · ABAQUS' }],
   },
   {
     id: 'control',
     mark: 'CE',
     zh: { title: '控制与电子', description: '完成传感、控制、电路设计与嵌入式联调。' },
     en: { title: 'Control & Electronics', description: 'Integrating sensing, control, electronics and embedded systems.' },
-    skills: ['MATLAB', 'STM32', 'PID', 'S7-1200', '嘉立创 EDA / PCB'],
+    skills: [{ zh: '瑞芯微 RK3576', en: 'Rockchip RK3576' }, 'STM32', 'ESP32', { zh: '西门子 PLC S7-1200', en: 'Siemens PLC S7-1200' }, '嘉立创 EDA / PCB'],
   },
   {
     id: 'autonomy',
     mark: 'AI',
     zh: { title: '感知与自主', description: '让机器人理解环境、定位自身并规划行动。' },
     en: { title: 'Perception & Autonomy', description: 'Helping robots perceive, localize and plan actions.' },
-    skills: ['ROS2', 'ORB-SLAM3', 'YOLOv5', '作物行识别 / Row vision', '路径规划 / Planning'],
+    skills: ['ROS2', 'ORB-SLAM3', 'YOLO', 'VLA', 'VLM'],
   },
   {
     id: 'software',
     mark: 'SW',
     zh: { title: '软件与工具', description: '用可靠的软件工具连接算法、硬件与实验。' },
     en: { title: 'Software & Tools', description: 'Connecting algorithms, hardware and experiments with reliable tooling.' },
-    skills: ['C/C++', 'Python', 'Linux / Ubuntu', 'Jetson Orin Nano', 'Keil · VS Code · Vim'],
+    skills: ['C/C++', 'Python', 'Linux / Ubuntu', 'Jetson Orin Nano', 'Keil · VS Code'],
   },
 ] as const;
 
@@ -204,9 +204,9 @@ export const achievements = [
 
 export const researchInterests = [
   { zh: '具身智能与 VLA', en: 'Embodied AI & VLA' },
-  { zh: '长时序机器人操作', en: 'Long-horizon robot manipulation' },
-  { zh: '机器人记忆与检索', en: 'Robot memory & retrieval' },
-  { zh: '自主机器人系统', en: 'Autonomous robotic systems' },
+  { zh: '嵌入式 AI 系统', en: 'Embedded AI Systems' },
+  { zh: '深海机器人', en: 'Deep-sea Robotics' },
+  { zh: '农业机器人', en: 'Agricultural Robotics' },
 ] as const;
 
 export const education = {
@@ -233,12 +233,12 @@ export const personalExperience = {
   zh: [
     { title: '本科 · 江南大学', detail: '机器人工程；研究方向：农业机器人、长时序任务 VLA。' },
     { title: '硕士 / 保研 · 西安交通大学', detail: '以绩点第一和综合第一获得保研资格；研究方向：轨道机器人、深海机器人。' },
-    { title: '实习 · 华智（无锡）人工智能科技有限公司', detail: '免示教焊接机器人空间标定系统。' },
+    { title: '实习 · 华智（无锡）人工智能科技有限公司', detail: '免示教焊接机器人空间标定与高精度定位系统。' },
   ],
   en: [
     { title: 'Undergraduate · Jiangnan University', detail: 'Robotics Engineering; research in agricultural robotics and long-horizon task VLA.' },
     { title: 'Postgraduate recommendation · Xi’an Jiaotong University', detail: 'Recommended for postgraduate study after ranking first by GPA and comprehensive assessment; research in rail and deep-sea robotics.' },
-    { title: 'Internship · Huazhi (Wuxi) Artificial Intelligence Technology Co., Ltd.', detail: 'Spatial calibration system for teachless welding robots.' },
+    { title: 'Internship · Huazhi (Wuxi) Artificial Intelligence Technology Co., Ltd.', detail: 'Spatial calibration and high-precision positioning system for teachless welding robots.' },
   ],
 } as const satisfies Record<Locale, readonly PersonalExperienceItem[]>;
 

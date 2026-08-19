@@ -8,6 +8,10 @@
     "zh": "结合超吸湿纳米纤维膜、电子追光平台和闭环控制，实现空气吸水、受热排水与循环运行。",
     "en": "A cyclic atmospheric water harvesting device combining a super-hygroscopic nanofiber membrane, sun tracking and closed-loop control."
   },
+  "resumeSummary": {
+    "zh": "本项目通过制备一种具有亲水-疏水核壳结构的超吸湿纳米纤维膜，实现从空气中直接吸附水分子，进而构建一种高效的大气水收集装置。基于卡尔曼滤波、一阶低通滤波器和 PID，利用电子追光平台和压力传感器等实现自动循环吸水排水，进而实现气态水分子/液态水的可控传输。",
+    "en": "Developed an efficient atmospheric water collection device by preparing a super-hygroscopic nanofiber membrane with a hydrophilic–hydrophobic core–shell structure to directly adsorb water molecules from air. Used Kalman filtering, a first-order low-pass filter and PID control, together with an electronic sun-tracking platform and pressure sensors, to automate cyclic adsorption and drainage and enable controlled transfer between atmospheric vapor and liquid water."
+  },
   "challenge": {
     "zh": "设备需要在吸湿与排水状态之间稳定切换，同时根据光照方向调整受热位置，并从压力信号中获得可靠的水量变化信息。",
     "en": "The system needed stable switching between adsorption and drainage, reliable sun-oriented heating and robust interpretation of pressure signals indicating water accumulation."

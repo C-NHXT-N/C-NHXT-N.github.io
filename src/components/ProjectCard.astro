@@ -4,11 +4,12 @@ import type { Locale } from '../data/site';
 import { localePath } from '../data/site';
 import ResponsiveImage from './ResponsiveImage.astro';
 
-const { project, locale, featured = false, interactive = true } = Astro.props as {
+const { project, locale, featured = false, interactive = true, useResumeSummary = false } = Astro.props as {
   project: CollectionEntry<'projects'>;
   locale: Locale;
   featured?: boolean;
   interactive?: boolean;
+  useResumeSummary?: boolean;
 };
 const data = project.data;
 ---
@@ -39,7 +40,7 @@ const data = project.data;
       <span>{data.period}</span>
     </div>
     <h3>{interactive ? <a href={localePath(locale, `/projects/${data.slug}/`)}>{data.title[locale]}</a> : data.title[locale]}</h3>
-    <p>{data.summary[locale]}</p>
+    <p>{useResumeSummary ? data.resumeSummary[locale] : data.summary[locale]}</p>
     <ul class="tag-list" aria-label={locale === 'zh' ? '技术标签' : 'Technology tags'}>
       {data.technologies.slice(0, featured ? 5 : 4).map((technology) => <li>{technology}</li>)}
     </ul>

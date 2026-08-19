@@ -11,6 +11,10 @@
     "zh": "面向葱类作物收获场景，集成松土、输送、分拣、视觉定位与自主导航的移动机器人。",
     "en": "A mobile robot integrating soil loosening, transport, sorting, visual localization and autonomous navigation for scallion harvesting."
   },
+  "resumeSummary": {
+    "zh": "自主设计一种智能葱类作物收获机器人，该机器人由松土系统、输送系统、分拣系统等组成。创新设计了松土机构、挠性传输机构和双死点连杆机构；利用 YOLOv5 实现对葱类作物质量分拣，通过 ORB-SLAM3 完成建图与定位，基于 EXG 与改进贯序聚类方法实现作物行视觉识别，利用改进的人工势场法进行路径规划。",
+    "en": "Independently designed an intelligent scallion harvesting robot composed of soil-loosening, transport and sorting systems. Innovated loosening, flexible transport and double-dead-point linkage mechanisms; used YOLOv5 for scallion quality sorting, ORB-SLAM3 for mapping and localization, ExG with improved sequential clustering for crop-row vision, and an improved artificial potential field method for path planning."
+  },
   "challenge": {
     "zh": "葱类作物形态细长、种植行间环境复杂，机器人需要在有限尺寸内同时完成低损松土、连续输送、质量分拣和田间自主移动。",
     "en": "Scallions are slender and field rows are visually complex. The robot had to combine low-damage loosening, continuous transport, quality sorting and autonomous motion within a compact platform."

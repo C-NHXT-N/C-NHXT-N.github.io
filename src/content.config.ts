@@ -21,6 +21,7 @@ const projects = defineCollection({
     title: localizedString,
     role: localizedString,
     summary: localizedString,
+    resumeSummary: localizedString,
     challenge: localizedString,
     solution: localizedList,
     contributions: localizedList,

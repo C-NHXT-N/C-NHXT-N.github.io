@@ -8,6 +8,10 @@
     "zh": "由太阳能和超级电容驱动、仅用一个电机同时完成驱动与凸轮转向的创新小车。",
     "en": "An innovative vehicle powered by solar energy and supercapacitors, using a single motor for propulsion and cam-based steering."
   },
+  "resumeSummary": {
+    "zh": "基于中国大学生工程实践与创新能力大赛设计了一款由太阳能和超级电容驱动的凸轮小车，全车只有一个电机驱动，利用凸轮摆杆机构实现转向；基于物理几何启发的迭代方法自主推导和设计凸轮优化设计及路径误差模拟仿真软件，利用误差抵消误差实现精准控制；并根据赛题要求自主设计太阳能板充放电电路，编写打卡亮灯程序。",
+    "en": "Designed a cam vehicle powered by solar energy and supercapacitors for the China College Students Engineering Practice and Innovation Competition. The vehicle used a single motor and a cam-rocker mechanism for steering. Independently derived and designed cam optimization and path-error simulation software with a physics- and geometry-inspired iterative method, using error cancellation for precise control; also designed the solar-panel charge/discharge circuit and programmed the checkpoint indicator according to the competition requirements."
+  },
   "challenge": {
     "zh": "在只有一个驱动电机的约束下，小车需要沿指定路线稳定行驶。凸轮轮廓误差、加工偏差与机构装配误差会共同影响路径精度。",
     "en": "With only one drive motor, the vehicle had to follow a prescribed path. Cam profile, manufacturing and assembly errors all affected trajectory accuracy."

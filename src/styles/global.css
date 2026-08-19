@@ -298,6 +298,12 @@ h3 {
   backdrop-filter: blur(12px);
 }
 
+.button--compact {
+  min-height: 2.45rem;
+  padding: 0.58rem 0.95rem;
+  font-size: 0.82rem;
+}
+
 .button:not(.disabled):hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
@@ -358,6 +364,7 @@ h3 {
   gap: 0.7rem;
   color: var(--ink);
   font-weight: 800;
+  font-size: 1.1rem;
   letter-spacing: -0.02em;
   line-height: 1;
   text-decoration: none;
@@ -408,7 +415,7 @@ h3 {
   padding: 0.5rem 0.88rem;
   border-radius: 999px;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 720;
   line-height: 1.2;
   text-decoration: none;
@@ -427,6 +434,7 @@ h3 {
 
 .header-actions {
   justify-content: flex-end;
+  padding-right: 0.75rem;
 }
 
 .icon-link {
@@ -439,7 +447,7 @@ h3 {
   border-radius: 999px;
   background: transparent;
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 800;
   line-height: 1;
   text-decoration: none;
@@ -452,12 +460,12 @@ h3 {
   color: var(--violet);
 }
 
-.github-link svg { width: 1.15rem; height: 1.15rem; }
+.github-link svg { width: 1.28rem; height: 1.28rem; }
 .email-link {
   max-width: min(12rem, 24vw);
   overflow-wrap: anywhere;
   color: var(--ink-soft);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 750;
   text-decoration: none;
 }
@@ -465,7 +473,7 @@ h3 {
 
 .language-link,
 .text-icon {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.01em;
 }
 
@@ -522,6 +530,7 @@ h3 {
 .hero__body p + p { margin-top: 0.45rem; }
 .hero__body .hero__experience-label { margin-bottom: 0.65rem; color: var(--ink-soft); font-weight: 780; }
 .hero__body .text-link { display: inline-block; margin-top: 0.8rem; }
+.hero__body .button { margin-top: 0.9rem; }
 
 .hero__body {
   max-width: 42rem;
@@ -718,6 +727,7 @@ h3 {
 
 .project-grid--featured {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
 }
 
 .project-grid--featured .project-card.featured { grid-row: auto; }
@@ -799,7 +809,8 @@ h3 {
   justify-content: space-between;
   gap: 1rem;
   color: var(--violet);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -892,11 +903,11 @@ h3 {
 
 .skill-root span {
   color: color-mix(in srgb, var(--paper) 64%, transparent);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
 }
 
 .skill-root strong {
-  font-size: 0.94rem;
+  font-size: 1.05rem;
 }
 
 .skill-branches {
@@ -950,19 +961,19 @@ h3 {
   border-radius: 0.72rem;
   background: var(--violet-wash);
   color: var(--violet);
-  font-size: 0.67rem;
+  font-size: 0.72rem;
   font-weight: 850;
 }
 
 .skill-branch h3 {
-  font-size: 1rem;
+  font-size: 1.12rem;
   letter-spacing: -0.025em;
 }
 
 .skill-branch p {
   margin-top: 0.4rem;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   line-height: 1.55;
 }
 
@@ -978,7 +989,7 @@ h3 {
   position: relative;
   padding-left: 0.85rem;
   color: var(--ink-soft);
-  font-size: 0.74rem;
+  font-size: 0.82rem;
   font-weight: 650;
 }
 
@@ -1767,9 +1778,10 @@ h3 {
   .header-actions {
     justify-content: flex-start;
     flex-wrap: wrap;
+    padding-right: 0;
   }
 
-  .email-link { max-width: none; font-size: 0.7rem; }
+  .email-link { min-width: 0; max-width: 100%; font-size: 0.8rem; overflow-wrap: anywhere; }
 
   .hero,
   .about-hero,

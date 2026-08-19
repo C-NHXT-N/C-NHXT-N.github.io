@@ -30,7 +30,7 @@ const t = copy[locale];
             </div>
           </div>
           <ul>
-            {branch.skills.map((skill) => <li>{skill}</li>)}
+            {branch.skills.map((skill) => <li>{typeof skill === 'string' ? skill : skill[locale]}</li>)}
           </ul>
         </article>
       ))}

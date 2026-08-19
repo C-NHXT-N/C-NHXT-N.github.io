@@ -8,6 +8,10 @@
     "zh": "使用两台西门子 S7-1200 PLC 与触摸屏，完成物料搬运、检测、分类和故障报警的完整产线。",
     "en": "A complete material handling, inspection, sorting and fault-alarm line built with two Siemens S7-1200 PLCs and an HMI."
   },
+  "resumeSummary": {
+    "zh": "通过两个西门子 S7-1200 PLC 与昆仑通态触摸屏，采集多个传感器信息并控制电磁阀、变频器、步进电机等执行机构，完成物料的搬运、检测、分类全流程。基于状态机编程完成顺序控制，基于看门狗实现动作超时报警。",
+    "en": "Built a full material handling, inspection and sorting process with two Siemens S7-1200 PLCs and an MCGS touchscreen, collecting multiple sensor signals and controlling solenoid valves, a variable-frequency drive and stepper motors. Implemented sequential control with a state machine and action-timeout alarms with watchdog logic."
+  },
   "challenge": {
     "zh": "多个传感器与气动、电机执行机构需要跨 PLC 协同，顺序动作既要稳定运行，也要在单步超时或传感器异常时及时报警。",
     "en": "Multiple sensors, pneumatic actuators and motors had to coordinate across two PLCs while detecting step timeouts and sensor faults safely."
