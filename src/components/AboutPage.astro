@@ -3,45 +3,27 @@ import type { Locale } from '../data/site';
 import {
   achievements,
   copy,
-  education,
+  personalExperience,
   researchInterests,
 } from '../data/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ResponsiveImage from './ResponsiveImage.astro';
 import SkillTree from './SkillTree.astro';
 import ContactCTA from './ContactCTA.astro';
 
 const { locale } = Astro.props as { locale: Locale };
 const t = copy[locale];
-const edu = education[locale];
+const experience = personalExperience[locale];
 ---
 
 <BaseLayout locale={locale} title={t.aboutTitle} description={t.aboutLead}>
   <main id="main-content">
-    <section class="about-hero wrapper">
-      <div class="about-hero__copy">
-        <span class="section-kicker">ABOUT · 郭艾咏</span>
-        <h1>{t.aboutLead}</h1>
-        <p>{t.aboutBody}</p>
-      </div>
-      <ResponsiveImage
-        class="about-portrait"
-        src="/assets/portrait.webp"
-        alt={locale === 'zh' ? '郭艾咏的完整机器人主题漫画肖像' : 'Full robotics-themed illustrated portrait of Aiyong Guo'}
-        loading="eager"
-        fetchpriority="high"
-        sizes="(min-width: 900px) 42vw, 100vw"
-      />
-    </section>
-
     <section class="section wrapper about-grid">
       <article class="about-panel education-panel">
-        <span class="section-kicker">EDUCATION</span>
-        <h2>{t.educationTitle}</h2>
-        <h3>{edu.school}</h3>
-        <p>{edu.degree}</p>
-        <p class="education-detail">{edu.detail}</p>
-        <p class="muted">{edu.courses}</p>
+        <span class="section-kicker">EXPERIENCE</span>
+        <h1>{t.educationTitle}</h1>
+        <ol class="experience-list">
+          {experience.map((item) => <li><h2>{item.title}</h2><p>{item.detail}</p></li>)}
+        </ol>
       </article>
       <article class="about-panel interest-panel">
         <span class="section-kicker">RESEARCH</span>
@@ -61,7 +43,7 @@ const edu = education[locale];
         <span class="section-kicker">FULL TIMELINE</span>
         <h2 id="timeline-title">{t.timelineTitle}</h2>
       </div>
-      <ol class="timeline">
+      <ol class="timeline" tabindex="0" aria-label={locale === 'zh' ? '个人经历时间线，可横向滚动' : 'Personal experience timeline, horizontally scrollable'}>
         {achievements.map((item) => (
           <li>
             <time>{item.year}</time>

@@ -4,35 +4,47 @@ import type { Locale } from '../data/site';
 import { localePath } from '../data/site';
 import ResponsiveImage from './ResponsiveImage.astro';
 
-const { project, locale, featured = false } = Astro.props as {
+const { project, locale, featured = false, interactive = true } = Astro.props as {
   project: CollectionEntry<'projects'>;
   locale: Locale;
   featured?: boolean;
+  interactive?: boolean;
 };
 const data = project.data;
 ---
 
-<article class:list={['project-card', { featured }]}>
-  <a class="project-card__image" href={localePath(locale, `/projects/${data.slug}/`)} aria-label={data.title[locale]}>
-    <ResponsiveImage
-      src={data.cover}
-      alt={data.images[0]?.alt[locale] ?? data.title[locale]}
-      sizes={featured ? '(min-width: 900px) 58vw, 100vw' : '(min-width: 900px) 42vw, 100vw'}
-    />
-    <span class="project-card__index" aria-hidden="true">0{data.order}</span>
-  </a>
+<article class:list={['project-card', { featured, 'is-static': !interactive }]}>
+  {interactive ? (
+    <a class="project-card__image" href={localePath(locale, `/projects/${data.slug}/`)} aria-label={data.title[locale]}>
+      <ResponsiveImage
+        src={data.cover}
+        alt={data.images[0]?.alt[locale] ?? data.title[locale]}
+        sizes={featured ? '(min-width: 900px) 58vw, 100vw' : '(min-width: 900px) 42vw, 100vw'}
+      />
+      <span class="project-card__index" aria-hidden="true">0{data.order}</span>
+    </a>
+  ) : (
+    <div class="project-card__image">
+      <ResponsiveImage
+        src={data.cover}
+        alt={data.images[0]?.alt[locale] ?? data.title[locale]}
+        sizes={featured ? '(min-width: 900px) 58vw, 100vw' : '(min-width: 900px) 42vw, 100vw'}
+      />
+      <span class="project-card__index" aria-hidden="true">0{data.order}</span>
+    </div>
+  )}
   <div class="project-card__body">
     <div class="project-card__meta">
       <span>{data.role[locale]}</span>
       <span>{data.period}</span>
     </div>
-    <h3><a href={localePath(locale, `/projects/${data.slug}/`)}>{data.title[locale]}</a></h3>
+    <h3>{interactive ? <a href={localePath(locale, `/projects/${data.slug}/`)}>{data.title[locale]}</a> : data.title[locale]}</h3>
     <p>{data.summary[locale]}</p>
     <ul class="tag-list" aria-label={locale === 'zh' ? '技术标签' : 'Technology tags'}>
       {data.technologies.slice(0, featured ? 5 : 4).map((technology) => <li>{technology}</li>)}
     </ul>
-    <a class="text-link" href={localePath(locale, `/projects/${data.slug}/`)}>
+    {interactive && <a class="text-link" href={localePath(locale, `/projects/${data.slug}/`)}>
       {locale === 'zh' ? '查看案例' : 'View case study'} <span aria-hidden="true">↗</span>
-    </a>
+    </a>}
   </div>
 </article>

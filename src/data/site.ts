@@ -10,10 +10,10 @@ export const copy = {
     siteDescription: '郭艾咏的双语机器人个人主页：项目、技能、科研兴趣与工程成果。',
     nav: { home: '首页', projects: '项目', about: '关于' },
     heroEyebrow: 'ROBOTICS · CONTROL · EMBODIED AI',
-    heroTitle: '郭艾咏',
+    heroTitle: '个人主页',
     heroHeadline: '把机器人想法，做成可运行的系统。',
     heroBody:
-      '江南大学机器人工程专业学生。我的工作跨越机构设计、嵌入式控制、机器人感知与自主导航，关注智能机器人和具身智能。',
+      '本科 江南大学机器人工程，研究方向农业机器人、长时序任务 VLA。硕士/保研 以绩点第一和综合第一保研至西安交通大学，研究方向轨道机器人、深海机器人。实习 华智（无锡）人工智能科技有限公司，免示教焊接机器人空间标定系统。',
     heroRoles: ['机器人系统', '机构与控制', '智能感知'],
     viewProjects: '查看项目',
     contactMe: '邮件联系',
@@ -31,7 +31,7 @@ export const copy = {
     aboutBody:
       '我就读于江南大学智能制造学院机器人工程专业。项目经历让我同时接触机械结构、电路、控制、视觉与机器人软件栈，也让我逐步把研究兴趣聚焦到具身智能、长时序机器人操作与机器人记忆。',
     interestsTitle: '研究兴趣',
-    educationTitle: '教育与基础',
+    educationTitle: '个人经历',
     timelineTitle: '经历时间线',
     contactTitle: '期待交流机器人研究与工程实践',
     contactBody: '欢迎导师、研究者与工程团队通过邮箱或 GitHub 与我联系。',
@@ -61,10 +61,10 @@ export const copy = {
     siteDescription: 'The bilingual robotics portfolio of Aiyong Guo: projects, skills, research interests and engineering work.',
     nav: { home: 'Home', projects: 'Projects', about: 'About' },
     heroEyebrow: 'ROBOTICS · CONTROL · EMBODIED AI',
-    heroTitle: 'Aiyong Guo',
+    heroTitle: 'Personal Homepage',
     heroHeadline: 'Turning robotics ideas into working systems.',
     heroBody:
-      'A Robotics Engineering student at Jiangnan University. I work across mechanism design, embedded control, robot perception and autonomous navigation, with interests in intelligent robotics and embodied AI.',
+      'Undergraduate study in Robotics Engineering at Jiangnan University, researching agricultural robotics and long-horizon task VLA. Recommended for postgraduate study at Xi’an Jiaotong University after ranking first by GPA and comprehensive assessment, with interests in rail and deep-sea robotics. Interned at Huazhi (Wuxi) Artificial Intelligence Technology Co., Ltd. on a spatial calibration system for teachless welding robots.',
     heroRoles: ['Robotics Systems', 'Mechanism & Control', 'Intelligent Perception'],
     viewProjects: 'View projects',
     contactMe: 'Email me',
@@ -82,7 +82,7 @@ export const copy = {
     aboutBody:
       'I study Robotics Engineering at the School of Intelligent Manufacturing, Jiangnan University. My projects span mechanisms, electronics, control, vision and the robotics software stack, and have shaped my current interests in embodied AI, long-horizon manipulation and robot memory.',
     interestsTitle: 'Research interests',
-    educationTitle: 'Education & foundations',
+    educationTitle: 'Personal experience',
     timelineTitle: 'Experience timeline',
     contactTitle: 'Let’s discuss robotics research and engineering',
     contactBody: 'Advisors, researchers and engineering teams are welcome to reach out by email or GitHub.',
@@ -109,8 +109,8 @@ export const copy = {
 
 export const proofPoints = [
   { value: '4', zh: '完整工程案例', en: 'End-to-end projects' },
-  { value: '4', zh: '机器人能力分支', en: 'Robotics skill branches' },
-  { value: '2×', zh: '全国一等奖', en: 'National first prizes' },
+  { value: '5', zh: '设计作品', en: 'Design works' },
+  { value: '6', zh: '国家级奖项', en: 'National-level awards' },
   { value: '1', zh: '授权发明专利', en: 'Granted invention patent' },
 ] as const;
 
@@ -149,20 +149,20 @@ export const achievements = [
   {
     year: '2025',
     type: 'competition',
-    zh: { title: '全国三维数字化创新设计大赛', meta: '全国一等奖 · 排名第一' },
-    en: { title: 'National 3D Digital Innovation Design Competition', meta: 'National First Prize · Ranked 1st' },
+    zh: { title: '全国三维数字化创新设计大赛', meta: '全国一等奖' },
+    en: { title: 'National 3D Digital Innovation Design Competition', meta: 'National First Prize' },
   },
   {
     year: '2025',
     type: 'competition',
-    zh: { title: '中国机器人及人工智能大赛', meta: '全国二等奖 · 排名第一' },
-    en: { title: 'China Robotics and Artificial Intelligence Competition', meta: 'National Second Prize · Ranked 1st' },
+    zh: { title: '中国机器人及人工智能大赛', meta: '全国二等奖' },
+    en: { title: 'China Robotics and Artificial Intelligence Competition', meta: 'National Second Prize' },
   },
   {
     year: '2025',
     type: 'competition',
-    zh: { title: '大学生先进成图技术与产品信息建模大赛', meta: '全国三等奖 · 排名第一' },
-    en: { title: 'National Advanced Drawing and Product Information Modeling Competition', meta: 'National Third Prize · Ranked 1st' },
+    zh: { title: '大学生先进成图技术与产品信息建模大赛', meta: '全国三等奖' },
+    en: { title: 'National Advanced Drawing and Product Information Modeling Competition', meta: 'National Third Prize' },
   },
   {
     year: '2025',
@@ -179,26 +179,26 @@ export const achievements = [
   {
     year: '2024',
     type: 'competition',
-    zh: { title: '全国大学生数学建模竞赛', meta: '江苏省一等奖 · 排名第一' },
-    en: { title: 'National Undergraduate Mathematical Contest in Modeling', meta: 'Jiangsu First Prize · Ranked 1st' },
+    zh: { title: '全国大学生数学建模竞赛', meta: '江苏省一等奖' },
+    en: { title: 'National Undergraduate Mathematical Contest in Modeling', meta: 'Jiangsu First Prize' },
   },
   {
     year: '2024',
     type: 'competition',
-    zh: { title: '中国大学生过程装备实践与创新赛', meta: '全国二等奖 · 排名第三' },
-    en: { title: 'China College Students Process Equipment Practice and Innovation Competition', meta: 'National Second Prize · Ranked 3rd' },
+    zh: { title: '中国大学生过程装备实践与创新赛', meta: '全国二等奖' },
+    en: { title: 'China College Students Process Equipment Practice and Innovation Competition', meta: 'National Second Prize' },
   },
   {
     year: '2024',
     type: 'competition',
-    zh: { title: '江苏省大学生机械创新设计大赛', meta: '江苏省二等奖 · 排名第一' },
-    en: { title: 'Jiangsu Undergraduate Mechanical Innovation Design Competition', meta: 'Jiangsu Second Prize · Ranked 1st' },
+    zh: { title: '江苏省大学生机械创新设计大赛', meta: '江苏省二等奖' },
+    en: { title: 'Jiangsu Undergraduate Mechanical Innovation Design Competition', meta: 'Jiangsu Second Prize' },
   },
   {
     year: '2023',
     type: 'competition',
-    zh: { title: '中国大学生工程实践与创新能力大赛', meta: '全国一等奖 · 排名第二' },
-    en: { title: 'China College Students Engineering Practice and Innovation Competition', meta: 'National First Prize · Ranked 2nd' },
+    zh: { title: '中国大学生工程实践与创新能力大赛', meta: '全国一等奖' },
+    en: { title: 'China College Students Engineering Practice and Innovation Competition', meta: 'National First Prize' },
   },
 ] as const;
 
@@ -223,6 +223,24 @@ export const education = {
     courses: 'Relevant coursework: Robot Sensing, Linear Algebra, Complex Variables and Computer Control Systems',
   },
 } as const;
+
+type PersonalExperienceItem = {
+  title: string;
+  detail: string;
+};
+
+export const personalExperience = {
+  zh: [
+    { title: '本科 · 江南大学', detail: '机器人工程；研究方向：农业机器人、长时序任务 VLA。' },
+    { title: '硕士 / 保研 · 西安交通大学', detail: '以绩点第一和综合第一获得保研资格；研究方向：轨道机器人、深海机器人。' },
+    { title: '实习 · 华智（无锡）人工智能科技有限公司', detail: '免示教焊接机器人空间标定系统。' },
+  ],
+  en: [
+    { title: 'Undergraduate · Jiangnan University', detail: 'Robotics Engineering; research in agricultural robotics and long-horizon task VLA.' },
+    { title: 'Postgraduate recommendation · Xi’an Jiaotong University', detail: 'Recommended for postgraduate study after ranking first by GPA and comprehensive assessment; research in rail and deep-sea robotics.' },
+    { title: 'Internship · Huazhi (Wuxi) Artificial Intelligence Technology Co., Ltd.', detail: 'Spatial calibration system for teachless welding robots.' },
+  ],
+} as const satisfies Record<Locale, readonly PersonalExperienceItem[]>;
 
 export const email = 'aiyong_guo@163.com';
 export const github = 'https://github.com/C-NHXT-N';

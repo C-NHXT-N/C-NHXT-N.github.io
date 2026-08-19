@@ -44,7 +44,7 @@
     "en": "Completed the integrated prototype and multi-module testing; related harvesting mechanism work received a granted national invention patent."
   },
   "technologies": ["ROS2", "ORB-SLAM3", "YOLOv5", "STM32", "C++", "Python", "Jetson Orin Nano", "SolidWorks"],
-  "cover": "/assets/projects/onion-prototype-side.webp",
+  "cover": "/assets/projects/onion-prototype-top.webp",
   "images": [
     {
       "src": "/assets/projects/onion-field-test.webp",
