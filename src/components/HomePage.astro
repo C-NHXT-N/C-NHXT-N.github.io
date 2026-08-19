@@ -29,7 +29,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
         <div class="hero__body">
           <p class="hero__experience-label">{locale === 'zh' ? '个人经历：' : 'Personal experience:'}</p>
           {experience.map((item) => <p><strong>{item.title}</strong>{locale === 'zh' ? '：' : ': '}{item.detail}</p>)}
-          <a class="button secondary button--compact" href={localePath(locale, '/about/')}>{locale === 'zh' ? '经历详情' : 'Experience details'} <span aria-hidden="true">→</span></a>
+          <a class="button primary experience-button" href={localePath(locale, '/about/')}>{locale === 'zh' ? '经历详情' : 'Experience details'} <span aria-hidden="true">→</span></a>
         </div>
       </div>
       <div class="hero__visual">

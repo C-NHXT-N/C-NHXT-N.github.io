@@ -298,10 +298,19 @@ h3 {
   backdrop-filter: blur(12px);
 }
 
-.button--compact {
-  min-height: 2.45rem;
-  padding: 0.58rem 0.95rem;
-  font-size: 0.82rem;
+.experience-button {
+  min-height: 3.25rem;
+  padding: 0.9rem 1.45rem;
+  font-size: 1rem;
+}
+
+.experience-button span {
+  font-size: 1.08rem;
+  transition: transform 200ms var(--ease);
+}
+
+.experience-button:hover span {
+  transform: translateX(0.2rem);
 }
 
 .button:not(.disabled):hover {
